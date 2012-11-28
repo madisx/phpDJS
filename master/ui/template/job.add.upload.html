@@ -1,0 +1,19 @@
+<h3>Upload Class File</h3>
+
+<label>%MESSAGE%</label>
+
+<form method="post" enctype="multipart/form-data" class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label" for="jobClassFile">Class File</label>
+        <div class="controls">
+            <input type="file" name="jobClassFile" id="jobClassFile" />
+        </div>        
+    </div>    
+    
+    <div class="control-group">
+        <div class="controls">
+            <input type="hidden" name="jobId" value="%JOB_ID%" />
+            <button type="submit" name="saveFile" class="btn">Upload Class</button>
+        </div>
+    </div>
+</form>

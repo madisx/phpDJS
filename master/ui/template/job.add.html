@@ -1,0 +1,31 @@
+<h3>Add A Job</h3>
+
+<form method="post" class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label" for="jobName">Name</label>
+        <div class="controls">
+            <input type="text" name="jobName" id="jobName" placeholder="Test Job" />
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label class="control-label" for="jobClass">Class File</label>
+        <div class="controls">
+            <input type="text" name="jobClass" id="jobClass" placeholder="test_job.class.php" />
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label class="control-label" for="jobClassUpload">Class File Upload</label>
+        <div class="controls">
+            <input type="checkbox" name="jobClassUpload" id="jobClassUpload" /><br/>
+            <span class="help-inline"><small>Check if the job file is not present on the master node, in the Files folder</small></span>
+        </div>        
+    </div>    
+    
+    <div class="control-group">
+        <div class="controls">
+            <button type="submit" name="saveJob" class="btn">Save Job</button>
+        </div>
+    </div>
+</form>

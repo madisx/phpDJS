@@ -1,0 +1,112 @@
+<h3>Job Settings</h3>
+
+<script>
+    function showRegular() {
+        $('#cronSettings').hide();
+        $('#regularSettings').show();
+    }
+    
+    function showCron() {
+        $('#regularSettings').hide();
+        $('#cronSettings').show();
+    }
+</script>
+
+<form class="form-horizontal" method="post">
+
+    <div class="control-group">
+        <label class="control-label" for="jobTypeCron">At specific time/interval</label>
+
+        <div class="controls">
+            <input type="radio" name="jobType" id="jobTypeCron" value="cron" onclick="showCron()" />
+        </div>
+
+        <div id="cronSettings" class="form-horizontal" style="display: none;clear:both;">
+            <div class="control-group">
+                <label class="control-label">Minute:</label>
+                <div class="controls">
+                    <input type="text" name="jobMinute" placeholder="*" class="span2" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Hour:</label>
+                <div class="controls">
+                    <input type="text" name="jobHour" placeholder="*" class="span2" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Day of Month:</label>
+                <div class="controls">
+                    <input type="text" name="jobDOM" placeholder="*" class="span2" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Month:</label>
+                <div class="controls">
+                    <input type="text" name="jobMon" placeholder="*" class="span2" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Day of Week:</label>
+                <div class="controls">
+                    <input type="text" name="jobDOW" placeholder="*" class="span2" />
+                </div>
+            </div>
+
+
+            <small>Just like cron settings. * means every full unit. */3 means each 3 units.</small>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="jobTypeRegular">As frequent as possible</label>
+
+        <div class="controls">
+            <input type="radio" name="jobType" id="jobTypeRegular" value="regular" onclick="showRegular()" />
+        </div>
+
+        <div id="regularSettings" class="form-horizontal" style="display: none;clear: both;">
+            <div class="control-group">
+                <label class="control-label" for="jobMaxParallel">Max Parallel Instances</label>
+                <div class="controls">
+                    %MAX_PARALLEL_DROPDOWN%
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="jobCooldownServer">Node Cooldown</label>
+                <div class="controls">
+                    <input type="text" name="jobCooldownServer" id="jobCooldownServer" class="span2" placeholder="5" /> s<br/>
+                    <span class="help-inline"><small>Time in seconds between two runs of the job on the same node</small></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="jobCooldown">Global Cooldown</label>
+                <div class="controls">
+                    <input type="text" name="jobCooldown" id="jobCooldown" class="span2" placeholder="2" /> s<br/>
+                    <span class="help-inline"><small>Time in seconds between two runs of the job on any node</small></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="jobServerRotate">Require Node Rotation</label>
+                <div class="controls">
+                    <input type="checkbox" name="jobServerRotate" id="jobServerRotate" /><br/>
+                    <span class="help-inline"><small>Check if job should not run twice in a row on the same node</small></span>
+                </div>        
+            </div>
+            
+            <small>0 - no cooldown</small>
+        </div>
+        
+    </div>   
+    
+    <div class="control-group">
+        <div class="controls">
+            <input type="hidden" name="jobId" value="%JOB_ID%" />
+            <button type="submit" name="saveSettings" class="btn">Save</button>
+        </div>
+    </div>
+
+</form>

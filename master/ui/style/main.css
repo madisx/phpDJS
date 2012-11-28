@@ -1,0 +1,15 @@
+/* 
+    Document   : main
+    Created on : Nov 13, 2012, 8:46:14 PM
+    Author     : madis
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+.header {
+    height: 60px;
+}

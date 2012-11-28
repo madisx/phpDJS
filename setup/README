@@ -1,0 +1,25 @@
+Follow these simple steps and start running your own distributed php jobs.
+
+Master node:
+
+Required packages: apache2, php5, mysql-server, php5-mysql
+
+* Download latest source package: wget http://madis.tahvel.org/phpDJS/wp-content/uploads/2012/09/phpDJS.latest.tar.gz
+* Extract the package to your computer, in the folder where apache has access: tar -xvf phpDJS.latest.tar.gz
+* Setup MySql database. Take master.sql file from setup folder from the source package and run on mysql server: mysql -u [username] -p < master.sql
+* Change the master configuration to use your mysql server and database. Edit master/configuration.php file - fields host, user, pass in the mysql array.
+* Change master configuration to your liking from the master/configuration.php
+* Grant write privileges/ownership for web user to master/files folder. For example: chown www-data:www-data master/files
+* Open your host up in the browser where you set up the phpDJS
+* Login with admin:admin
+* Add jobs and nodes :)
+ 
+
+Slave node:
+
+Required packages: php5, php-pear, pear System_Daemon
+
+* Download latest source package: wget http://madis.tahvel.org/phpDJS/wp-content/uploads/2012/09/phpDJS.latest.tar.gz
+* Extract the package: tar -xvf phpDJS.latest.tar.gz
+* Change node/configuration.php, set masterIP and masterURI for example if master has url http://127.0.0.1/phpDJS then use masterIP=localhost and masterURI=/phpDJS/. Also set absolute path to node job scripts - it must have write permission for the user from which the node will be started.
+* Start daemon: php node_daemon.php

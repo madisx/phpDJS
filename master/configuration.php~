@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @author Madis Kapsi 2012
+ * 
+ * phpDistributedJobScheduler master node configuration file
+ * contains mysql and master server configurations
+ */
+
+$config = array(
+    //standard mysql server configuration
+    'mysql' => array(
+        'host' => 'localhost',
+        'user' => 'root',
+        'pass' => 'maxpayne',
+        'base' => 'phpDJS',
+    ),    
+    //phpDJS master server configuration
+    'server' => array(
+        //allow nodes that are not in servers table
+        'allow_unknown' => false,
+        //add nodes not in servers table automatically
+        'auto_add_unknown' => true,
+        'class_files' => './files/',
+    ),
+);
+
+?>
