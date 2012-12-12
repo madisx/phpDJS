@@ -165,7 +165,7 @@ class jobs {
                             <td>'.$stats['rows'].'</td>
                             <td>'.$info['2'].'</td>
                             <td>'.$info['3'].'</td>
-                            <td>'.round($info['total']/$info['2'],4).'s</td>
+                            <td>'.round($info['total']/($info['2']==0?1:$info['2']),4).'s</td>
                             <td>
                                 <a href="?page=listJobs&action=edit&id='.$job['id'].'" title="Edit settings" ><i class="icon-pencil"></i></a>
                                 <a href="?page=listJobs&action=upload&id='.$job['id'].'" title="Upload class file" ><i class="icon-arrow-up"></i></a>
