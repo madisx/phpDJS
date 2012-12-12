@@ -251,8 +251,12 @@ class jobs {
             $q = 'INSERT INTO schedule SET job_id='.intval($_POST['jobId']).', type=1, frequency=1 ON DUPLICATE KEY UPDATE type=1, frequency=1';
             $this->db->query($q, false);
             
-            $q = 'INSERT INTO job_parameters SET job_id='.intval($_POST['jobId']).', max_parallel='.$_POST['jobMaxParallel'].', server_cooldown='.$_POST['jobCooldownServer'].',global_cooldown='.$_POST['jobCooldown'].',server_rotation_required='.(isset($_POST['jobServerRotate'])?1:0).' 
-                    ON DUPLICATE KEY UPDATE max_parallel='.$_POST['jobMaxParallel'].', server_cooldown='.$_POST['jobCooldownServer'].',global_cooldown='.$_POST['jobCooldown'].',server_rotation_required='.(isset($_POST['jobServerRotate'])?1:0);
+            $maxParallel = intval(@$_POST['jobMaxParallel']);
+            $serverCooldown = intval(@$_POST['jobCooldownServer']);
+            $glovalCooldown = intval(@$_POST['jobCooldown']);
+            
+            $q = 'INSERT INTO job_parameters SET job_id='.intval($_POST['jobId']).', max_parallel='.$maxParallel.', server_cooldown='.$serverCooldown.',global_cooldown='.$glovalCooldown.',server_rotation_required='.(isset($_POST['jobServerRotate'])?1:0).' 
+                    ON DUPLICATE KEY UPDATE max_parallel='.$maxParallel.', server_cooldown='.$serverCooldown.',global_cooldown='.$glovalCooldown.',server_rotation_required='.(isset($_POST['jobServerRotate'])?1:0);
             
             $this->db->query($q, false);
         }
